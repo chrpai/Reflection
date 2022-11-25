@@ -1,26 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
+using System;
 using System.Reflection;
 
-namespace Reflection
+namespace Libs
 {
     public interface IPlugin
     {
         int Test { get; }
     }
-    public class TestPlugin : IPlugin
+    public class LibStandardPlugin : IPlugin
     {
         int IPlugin.Test { get { return 42; } }
-
     }
-    internal class Program
+    public class Server
     {
-        static void Main(string[] args)
+        public static void Test()
         {
             string currentDirectory = new FileInfo(Assembly.GetExecutingAssembly().Location).DirectoryName;
             List<Assembly> pluginAssemblies = new List<Assembly>();
-            string[] files = Directory.GetFiles(currentDirectory, "*.exe", SearchOption.AllDirectories);
+            string[] files = Directory.GetFiles(currentDirectory, "*.dll", SearchOption.AllDirectories);
             bool which = false;
             if (which)
             {
@@ -30,7 +29,6 @@ namespace Reflection
             {
                 foreach (string file in files)
                 {
-                    // pluginAssemblies.Add(Assembly.GetExecutingAssembly());
                     pluginAssemblies.Add(Assembly.LoadFile(file));
                 }
             }
@@ -43,14 +41,12 @@ namespace Reflection
                     Type iDesigner = type.GetInterface(typeof(IPlugin).FullName);
                     if (iDesigner != null)
                     {
-                        object instance = Activator.CreateInstance(type);
-                        IPlugin plugin = (IPlugin)instance;
+                        object instance = Activator.CreateInstance(type); // creates an object 
+                        IPlugin plugin = (IPlugin)instance; // throws an exception
                         Console.WriteLine(plugin.Test);
                     }
                 }
             }
-            Console.WriteLine("PAK");
-            Console.ReadLine();
         }
     }
 }

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Reflection48")]
+[assembly: AssemblyTitle("ConsoleFrameworkStandard")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Reflection48")]
+[assembly: AssemblyProduct("ConsoleFrameworkStandard")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("b9466c99-4766-4854-a6f0-038b4f062385")]
+[assembly: Guid("b7d369b2-0b9a-41e9-9bad-e2a1137cdf58")]
 
 // Version information for an assembly consists of the following four values:
 //
